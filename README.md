@@ -1,2 +1,2 @@
 # simple-social
-Let's get as vein as possible - username, followers, and nothing else
+Let's get as vain as possible - username, followers, and nothing else
