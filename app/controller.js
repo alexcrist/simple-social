@@ -100,6 +100,8 @@ function isFollowing(followee, follower) {
       .then(function (user) {
         if (user.following.includes(followee)) {
           reject('Already following.');
+        } else if (user.username == followee) {
+          reject('Cannot follow yourself.');
         } else {
           resolve();
         }

@@ -1,7 +1,7 @@
 {
   "name": "simple-social",
   "version": "1.0.0",
-  "description": "Let's get as vein as possible - username, followers, and nothing else",
+  "description": "Let's get as vain as possible - username, followers, and nothing else",
   "main": "app/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
