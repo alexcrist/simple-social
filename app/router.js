@@ -11,7 +11,7 @@ router.route('/users/:username')
   .post(controller.createUser)
   .delete(controller.deleteUser);
 
-router.route('/users/:username/follow')
+router.route('/users/:followee/follow')
   .post(controller.follow);
 
 module.exports = router;

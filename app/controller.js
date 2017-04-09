@@ -66,30 +66,52 @@ function follow (req, res) {
   var followee = req.params.followee;
   var follower = req.body.follower;
 
-  var follow = User.findOneAndUpdate({
-    username: followee
-  }, {
-    $push: { followers: follower }
-  });
-
-  var getFollowed = User.findOneAndUpdate({
-    username: follower
-  }, {
-    $push: { following: followee }
-  });
-
-  Promise.all([follow, getFollowed])
+  isFollowing(followee, follower)
     .then(function () {
-      res.status(200);
+      var follow = User.findOneAndUpdate({
+        username: followee
+      }, {
+        $push: { followers: follower }
+      });
+
+      var getFollowed = User.findOneAndUpdate({
+        username: follower
+      }, {
+        $push: { following: followee }
+      });
+
+      Promise.all([follow, getFollowed])
+        .then(function () {
+          res.sendStatus(200);
+        })
+        .catch(function (err) {
+          // TODO - handle situation where only one works
+          res.status(500).send(err);
+        });
     })
     .catch(function (err) {
-      // TODO - handle situation where only one works
       res.status(500).send(err);
-    })
+    });
+}
+
+function isFollowing(followee, follower) {
+  return new Promise(function (resolve, reject) {
+    User.findOne({ username: follower })
+      .then(function (user) {
+        if (user.following.includes(followee)) {
+          reject('Already following.');
+        } else {
+          resolve();
+        }
+      })
+      .catch(function (err) {
+        reject(err);
+      });
+  });
 }
 
 function unfollow (req, res) {
-  // TOOD - fill out
+  // TODO - fill out
 }
 
 module.exports = {
