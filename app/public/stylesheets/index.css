@@ -1,0 +1,70 @@
+.main-container {
+  width: 95%;
+  max-width: 500px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.users-table {
+  padding: 5px 0;
+  border-radius: 0 0 5px 5px;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.users-header {
+  border-radius: 5px 5px 0 0;
+  background: #43A047;
+  padding: 8px 16px;
+  border: 1px solid #43A047;
+  color: white;
+}
+
+.user-row {
+  white-space: nowrap;
+  margin: 5px 10px;
+  padding: 0 5px;
+}
+
+.follower-counter {
+  display: inline-block;
+  text-align: center;
+  margin: auto .5%;
+}
+
+.user-input-container {
+  width: 120%;
+  margin: 50px -1.5% 5px auto;
+  margin-left: auto;
+  margin-right: -1.5%;
+  text-align: center;
+}
+
+.user-input {
+  margin: 0;
+  padding: 5px;
+}
+
+.input-form {
+  width: 25%;
+}
+
+.delete {
+  width: 50%;
+}
+
+.no-users {
+  border-top: 1px solid #ddd;
+  margin: 15px;
+}
+
+.status-message {
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+}

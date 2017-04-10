@@ -1,8 +1,13 @@
 var User = require('./User.js');
 
-function getUsers (req, res) {
-  // TODO - fill out
-  res.status(200);
+function getAllUsers(req, res) {
+  User.find({})
+    .then(function(users) {
+      res.json(users);
+    })
+    .catch(function(err) {
+      res.status(500).send(err);
+    });
 }
 
 function getUser(req, res) {
@@ -101,7 +106,7 @@ function isFollowing(followee, follower) {
         if (user.following.includes(followee)) {
           reject('Already following.');
         } else if (user.username == followee) {
-          reject('Cannot follow yourself.');
+          reject('Cannot follow yourself. Get more friends.');
         } else {
           resolve();
         }
@@ -117,7 +122,7 @@ function unfollow (req, res) {
 }
 
 module.exports = {
-  getUsers: getUsers,
+  getAllUsers: getAllUsers,
   getUser: getUser,
   createUser: createUser,
   deleteUser: deleteUser,

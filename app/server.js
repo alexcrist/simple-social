@@ -9,6 +9,7 @@ app = express();
 app.use(express.static(path.join(__dirname + '/public/')));
 app.use(bodyParser.json());
 app.use(router);
+app.use('/bower_components', express.static('../simple-social/bower_components'));
 
 var port = process.env.PORT || 7777;
 app.listen(port);

@@ -4,7 +4,7 @@ var express = require('express'),
 var router = express.Router();
 
 router.route('/users')
-  .get(controller.getUsers);
+  .get(controller.getAllUsers);
 
 router.route('/users/:username')
   .get(controller.getUser)
@@ -13,5 +13,5 @@ router.route('/users/:username')
 
 router.route('/users/:followee/follow')
   .post(controller.follow);
-
+// 
 module.exports = router;
