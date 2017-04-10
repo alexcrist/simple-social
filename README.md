@@ -2,14 +2,20 @@
 Let's get as vain as possible - username, followers, and nothing else
 
 ## Features
-* Back end node
+* Back end 
 	* Get users
 	* Create users
 	* Users can follow other users
 	* Delete users
-	* Salt + hash passwords
+
+* Front end
+	* List all users and followers
+	* Add and delete users
 
 ## To Do
-* Disallow following oneself
-* Add front end component
+
+* Cleanup layout of front end
+* Add follow functionality to front end
+* Fix delete not updating user list without page refresh
 * Elastic user searching
+* Encrypt passwords
