@@ -14,7 +14,7 @@ var userSchema = mongoose.Schema({
   following: [String]
 });
 
-UserSchema.virtual('isLocked').get(function() {
+userSchema.virtual('isLocked').get(function() {
     // check if user is currently locked from logging in
     return !!(this.lockUntil && this.lockUntil > Date.now());
 });
@@ -47,7 +47,7 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
     });
 };
 
-UserSchema.methods.incLoginAttempts = function(cb) {
+userSchema.methods.incLoginAttempts = function(cb) {
     // if we have a previous lock that has expired, restart at 1
     if (this.lockUntil && this.lockUntil < Date.now()) {
         return this.update({
@@ -67,13 +67,13 @@ UserSchema.methods.incLoginAttempts = function(cb) {
     return this.update(updates, cb);
 };
 
-var reasons = UserSchema.statics.failedLogin = {
+var reasons = userSchema.statics.failedLogin = {
     NOT_FOUND: 0,
     PASSWORD_INCORRECT: 1,
     MAX_ATTEMPTS: 5
 };
 
-UserSchema.statics.getAuthenticated = function(username, password, cb) {
+userSchema.statics.getAuthenticated = function(username, password, cb) {
     this.findOne({ username: username }, function(err, user) {
         if (err) return cb(err);
 
