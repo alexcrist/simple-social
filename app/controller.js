@@ -1,11 +1,8 @@
 var User = require('./User.js');
 
 function getAllUsers(req, res) {
-  console.log('getAllUsers');
   User.find({})
     .then(function(users) {
-      console.log('success');
-      console.log(users);
       res.json(users);
     })
     .catch(function(err) {
