@@ -5,6 +5,7 @@ Let's get as vain as possible - username, followers, and nothing else
 * Back end 
 	* Get users
 	* Create users
+	* bcrypt passwords
 	* Users can follow other users
 	* Delete users
 
@@ -14,8 +15,6 @@ Let's get as vain as possible - username, followers, and nothing else
 
 ## To Do
 
-* Cleanup layout of front end
-* Add follow functionality to front end
-* Fix delete not updating user list without page refresh
+* Rewrite front end in React
+* Add follow functionality to front end (coming with React rewrite)
 * Elastic user searching
-* Encrypt passwords
