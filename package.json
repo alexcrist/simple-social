@@ -4,24 +4,35 @@
   "description": "Let's get as vain as possible - username, followers, and nothing else",
   "main": "app/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "webpack -p && node app/server.js",
+    "front-end": "webpack --progress --watch",
+    "back-end": "nodemon app/server.js --ignore app/public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexcrist/simple-social.git"
   },
-  "author": "Alex Crist",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexcrist/simple-social/issues"
   },
   "homepage": "https://github.com/alexcrist/simple-social#readme",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.3",
-    "bower": "1.8.0",
-    "bcrypt": "1.0.2"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.4.1"
   }
 }
